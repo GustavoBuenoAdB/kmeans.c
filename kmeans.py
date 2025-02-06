@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 
 def distancia_euclidiana(x1, x2):
     return np.sqrt(np.sum((x1 - x2) ** 2))
@@ -68,7 +68,10 @@ if __name__ == "__main__":
     cv2.imwrite("clustered_image.jpg", clustered_image)
     cv2.imshow("Imagem Original", img)
     cv2.imshow(f'Imagem Clusterizada (K={k})', clustered_image)
-    cv2.waitKey(0)
+
+    while cv2.waitKey() != 27: # aperta esc
+        pass
+
     cv2.destroyAllWindows()
 
     
